@@ -13,6 +13,7 @@ import os
 import time
 
 from pynput import keyboard
+#os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
 
 os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
 token = os.getenv('TOKEN')
@@ -69,7 +70,7 @@ def cevap(bot, update):
     cevaplar1=update.message.text
     cevaplar=cevaplar1.split()
     cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
-    #bot.send_message(chat_id=update.message.chat_id, text="soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+    bot.send_message(chat_id=update.message.chat_id, text="id: "+ update.message.chat_id + "soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
 
 def sil(bot,update):
     cevaplar1=update.message.text
