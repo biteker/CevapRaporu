@@ -12,6 +12,7 @@ import pyscreenshot as ImageGrab
 import os
 import time
 
+from pdf import pdfYap
 from pynput import keyboard
 #os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
 
@@ -104,6 +105,9 @@ def mesajYolla():
     dosyaAdi=ekranYakala()
     updater.bot.send_photo(chat_id=kanalID, photo=open(dosyaAdi, 'rb'))
 
+def pdfYolla():
+    pdfYap()
+
 def on_press(key):
     if key == keyboard.Key.esc:
         return False  # stop listener
@@ -117,6 +121,9 @@ def on_press(key):
         mesajYolla()
         print('Key pressed: ' + k)
         #return False  # stop listener; remove this if want more keys
+    if k in ['3']:
+        pdfYolla()
+        print('Key pressed: ' + k)
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
@@ -136,5 +143,3 @@ updater.start_polling()
 listener = keyboard.Listener(on_press=on_press)
 listener.start()  # start to listen on a separate thread
 listener.join()  # remove if main thread is polling self.keys
-
-
