@@ -20,3 +20,4 @@ def pdfYap():
 				continue
 			imgs.append(path)
 		f.write(img2pdf.convert(imgs))
+	return fileName
