@@ -25,7 +25,7 @@ updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
 dosyaAdi = 1
-
+kanalID="-427599895"
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
 
 def harfCevir(harf):
@@ -67,17 +67,26 @@ def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="'/cevap Soru cevap' şeklinde cevabı bildirin. Örnek: /cevap 5-a")
 
 def cevap(bot, update):
-    cevaplar1=update.message.text
-    cevaplar=cevaplar1.split()
-    cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
-    bot.send_message(chat_id=update.message.chat_id, text="id: "+ update.message.chat_id + "soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+    if(str(update.message.chat_id)==kanalID):
+        cevaplar1=update.message.text
+        cevaplar=cevaplar1.split()
+        cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
+        bot.send_message(chat_id=update.message.chat_id, text="soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
+
+    
 
 def sil(bot,update):
-    cevaplar1=update.message.text
-    cevaplar=cevaplar1.split()
-    if(cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]>0):
-        cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]-=1
-    bot.send_message(chat_id=update.message.chat_id, text="SILINDI soru:" + cevaplar[1] + " cevap:" + cevaplar[2])    
+    if(str(update.message.chat_id)==kanalID):
+        cevaplar1=update.message.text
+        cevaplar=cevaplar1.split()
+        if(cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]>0):
+            cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]-=1
+        bot.send_message(chat_id=update.message.chat_id, text="SILINDI soru:" + cevaplar[1] + " cevap:" + cevaplar[2])    
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
+
 
 def cevaplar(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=cevapGoster())
@@ -93,7 +102,7 @@ def ekranYakala():
 def mesajYolla():
     #updater.bot.send_message(chat_id="-367063764", text="test yayini1")
     dosyaAdi=ekranYakala()
-    updater.bot.send_photo(chat_id="-427599895", photo=open(dosyaAdi, 'rb'))
+    updater.bot.send_photo(chat_id=kanalID, photo=open(dosyaAdi, 'rb'))
 
 def on_press(key):
     if key == keyboard.Key.esc:
