@@ -14,7 +14,7 @@ import time
 
 from pynput import keyboard
 
-os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA'
+os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
 token = os.getenv('TOKEN')
 if not token:
     print("You need to export TOKEN=YOURTELEGRAMTOKEN")
@@ -22,6 +22,8 @@ if not token:
 
 updater = Updater(token=token)
 dispatcher = updater.dispatcher
+
+dosyaAdi = 1
 
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
 
@@ -67,7 +69,7 @@ def cevap(bot, update):
     cevaplar1=update.message.text
     cevaplar=cevaplar1.split()
     cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
-    bot.send_message(chat_id=update.message.chat_id, text="soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+    #bot.send_message(chat_id=update.message.chat_id, text="soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
 
 def sil(bot,update):
     cevaplar1=update.message.text
@@ -80,14 +82,17 @@ def cevaplar(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=cevapGoster())
 
 def ekranYakala():
-    im = ImageGrab.grab()
-    im.save("screen2.png", "PNG")
+    im = ImageGrab.grab(bbox =(0, 100, 1430, 850))
+    tZaman = time.localtime()
+    dosyaAdi = time.strftime("%Y%M%d%H%m%S.png", tZaman)
+    im.save(dosyaAdi, "PNG")
     print("Sending...")
+    return dosyaAdi
 
 def mesajYolla():
     #updater.bot.send_message(chat_id="-367063764", text="test yayini1")
-    ekranYakala()
-    updater.bot.send_photo(chat_id="-367063764", photo=open('screen2.png', 'rb'))
+    dosyaAdi=ekranYakala()
+    updater.bot.send_photo(chat_id="-427599895", photo=open(dosyaAdi, 'rb'))
 
 def on_press(key):
     if key == keyboard.Key.esc:
