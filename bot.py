@@ -14,6 +14,7 @@ import time
 
 from pynput import keyboard
 
+os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
 token = os.getenv('TOKEN')
 if not token:
     print("You need to export TOKEN=YOURTELEGRAMTOKEN")
