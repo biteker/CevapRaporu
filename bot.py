@@ -15,9 +15,9 @@ import time
 
 from pdf import pdfYap
 from pynput import keyboard
-#os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
+#os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw' #bilirkisi
 
-os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw'
+os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA' #malumat
 token = os.getenv('TOKEN')
 if not token:
     print("You need to export TOKEN=YOURTELEGRAMTOKEN")
@@ -27,7 +27,7 @@ updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
 dosyaAdi = 1
-kanalID="-427599895"
+kanalID="-328562056"
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
 
 def harfCevir(harf):
@@ -93,6 +93,9 @@ def sil(bot,update):
 def cevaplar(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=cevapGoster())
 
+def k(bot, update):
+    bot.send_message(chat_id=kanalID, text=update.message.text[3:])
+
 def ekranYakala():
     im = ImageGrab.grab(bbox =(0, 100, 1430, 850))
     tZaman = time.localtime()
@@ -138,6 +141,9 @@ capture_handler = CommandHandler('sil', sil)
 dispatcher.add_handler(capture_handler)
 
 capture_handler = CommandHandler('cevaplar', cevaplar)
+dispatcher.add_handler(capture_handler)
+
+capture_handler = CommandHandler('k', k)
 dispatcher.add_handler(capture_handler)
 
 print("Running bot now.")
