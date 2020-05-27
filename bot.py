@@ -121,7 +121,7 @@ def on_press(key):
         k = key.char  # single-char keys
     except:
         k = key.name  # other keys
-    if k in ['1', '2', 'left', 'right']:  # keys of interest
+    if k in ['1', '2']:  # keys of interest
         # self.keys.append(k)  # store it in global-like variable
         #capture(bot,update)
         mesajYolla()
