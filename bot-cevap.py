@@ -8,6 +8,7 @@
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 
+import pyscreenshot as ImageGrab
 import os
 import time
 
@@ -24,6 +25,7 @@ dispatcher = updater.dispatcher
 
 dosyaAdi = 1
 kanalID="-1001144169699"
+
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
 
 def harfCevir(harf):
@@ -60,7 +62,6 @@ def cevapGoster():
         mesaj+="\n"
     return mesaj
 
-
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="'/cevap Soru cevap seklinde cevabi bildirin. Ornek: /cevap 5-a")
 
@@ -73,8 +74,6 @@ def cevap(bot, update):
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
-    
-
 def sil(bot,update):
     if(str(update.message.chat_id)==kanalID):
         cevaplar1=update.message.text
@@ -85,18 +84,18 @@ def sil(bot,update):
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
-
 def cevaplar(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=cevapGoster())
 
 def k(bot, update):
     bot.send_message(chat_id=kanalID, text=update.message.text[3:])
 
-
-
-
-
-
+def sifirla(bot,update):
+    for i in range(len(cevaplarToplu)):
+        for j in range(len(cevaplarToplu[i])):
+            cevaplarToplu[i][j]=0
+    bot.send_message(chat_id=update.message.chat_id, text="sifirlandi")
+       
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
@@ -111,6 +110,9 @@ capture_handler = CommandHandler('cevaplar', cevaplar)
 dispatcher.add_handler(capture_handler)
 
 capture_handler = CommandHandler('k', k)
+dispatcher.add_handler(capture_handler)
+
+capture_handler = CommandHandler('sifirla', sifirla)
 dispatcher.add_handler(capture_handler)
 
 print("Running bot now.")
