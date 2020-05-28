@@ -86,6 +86,8 @@ def sil(bot,update):
 
 def cevaplar(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=cevapGoster())
+    bot.send_message(chat_id=kanalID, text=cevapGoster())
+
 
 def k(bot, update):
     bot.send_message(chat_id=kanalID, text=update.message.text[3:])
@@ -106,7 +108,7 @@ dispatcher.add_handler(capture_handler)
 capture_handler = CommandHandler('sil', sil)
 dispatcher.add_handler(capture_handler)
 
-capture_handler = CommandHandler('cevaplar', cevaplar)
+capture_handler = CommandHandler('yanitlar', cevaplar)
 dispatcher.add_handler(capture_handler)
 
 capture_handler = CommandHandler('k', k)
