@@ -8,11 +8,9 @@
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 
-import pyscreenshot as ImageGrab
 import os
 import time
 
-from pynput import keyboard
 os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw' #bilirkisi
 
 #os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA' #malumat
