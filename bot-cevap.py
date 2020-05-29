@@ -27,6 +27,10 @@ dosyaAdi = 1
 kanalID="-1001144169699"
 
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
+kisi =[]
+cevapRapor=[]
+katilimciListesi=[]
+katilimciListesi1=[]
 
 def harfCevir(harf):
     if(harf=="a" or harf=="A"):
@@ -70,7 +74,9 @@ def cevap(bot, update):
         cevaplar1=update.message.text
         cevaplar=cevaplar1.split()
         cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
-        #bot.send_message(chat_id=update.message.chat_id, text="soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+        kisi=[str(update.message.from_user.id), int(cevaplar[1])-1, harfCevir(cevaplar[2])]
+        cevapRapor.append(kisi)
+        bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + "soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
@@ -97,6 +103,29 @@ def sifirla(bot,update):
         for j in range(len(cevaplarToplu[i])):
             cevaplarToplu[i][j]=0
     bot.send_message(chat_id=update.message.chat_id, text="sifirlandi")
+
+def katilanlaraEkle():
+    for i in range(len(cevapRapor)):
+        if any(cevapRapor[i][0] in sublist for sublist in katilimciListesi)==False:
+            katilimciListesi1=[cevapRapor[i][0],1]
+            katilimciListesi.append(katilimciListesi1)
+        else:
+            for j in range(len(katilimciListesi)):
+                if (cevapRapor[i][0] in katilimciListesi[j])==True:
+                    katilimciListesi[j][1]+=1
+                    print(katilimciListesi)
+
+def katilanlar(bot, update):
+    katilimciListesi.clear()
+    katilanlaraEkle()
+    mesaj="Katılanların Soru cevaplama Sayilari"
+    mesaj+="\n" 
+    for i in range(len(katilimciListesi)):
+        mesaj+=katilimciListesi[i][0]
+        mesaj+=" : "
+        mesaj+=str(katilimciListesi[i][1])
+        mesaj+="\n"  
+    bot.send_message(chat_id=update.message.chat_id, text=mesaj)
        
 
 start_handler = CommandHandler('start', start)
@@ -115,6 +144,9 @@ capture_handler = CommandHandler('k', k)
 dispatcher.add_handler(capture_handler)
 
 capture_handler = CommandHandler('sifirla', sifirla)
+dispatcher.add_handler(capture_handler)
+
+capture_handler = CommandHandler('katilanlar', katilanlar)
 dispatcher.add_handler(capture_handler)
 
 print("Running bot now.")
