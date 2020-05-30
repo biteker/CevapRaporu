@@ -27,6 +27,22 @@ liste.append(ogrenci)
 ogrenci=Person(4,5,6)
 liste.append(ogrenci)
 
-print(liste[1].userId)
+#print(liste[1].userId)
 
 #print(*liste, sep="\n")
+cevapRapor =[]
+
+kisi = ["12312","18","A","huseyin","biteker"]
+
+cevapRapor.append(kisi)
+kisi = ["12312","19","B","murat","selcuk"]
+#cevapRapor.append(kisi)
+
+def kisiSoruyaCevapVerdiMi():
+    for i in range(len(cevapRapor)):
+        if (kisi[0] in cevapRapor[i][0]) and (kisi[1] in cevapRapor[i][1]):
+            return True
+    return False
+
+print(kisiSoruyaCevapVerdiMi())
+
