@@ -76,7 +76,7 @@ def cevap(bot, update):
             cevapRapor.append(kisi)
         else:
             bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " Bu soruya dana once cevap verdiniz.")
-        bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+        #bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
