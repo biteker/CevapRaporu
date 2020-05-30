@@ -1,0 +1,180 @@
+Index: test.py
+===================================================================
+--- test.py	(revision 35e8f239209925ca2862d323f8b83978d8783218)
++++ test.py	(revision 35e8f239209925ca2862d323f8b83978d8783218)
+@@ -1,7 +0,0 @@
+-import os
+-import img2pdf
+-'''
+-with open("output.pdf", "wb") as f:
+-    f.write(img2pdf.convert([i for i in os.listdir('path/to/imageDir') if i.endswith(".jpg")]))
+-    
+-'''
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/inspectionProfiles/profiles_settings.xml	(date 1590702706405)
++++ .idea/inspectionProfiles/profiles_settings.xml	(date 1590702706405)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(date 1590702706417)
++++ .idea/.gitignore	(date 1590702706417)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/CevapRaporu.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/CevapRaporu.iml	(date 1590702706429)
++++ .idea/CevapRaporu.iml	(date 1590702706429)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1590702706437)
++++ .idea/vcs.xml	(date 1590702706437)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1590702706445)
++++ .idea/misc.xml	(date 1590702706445)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.5.2 (/usr/bin/python3.5)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(date 1590702706453)
++++ .idea/modules.xml	(date 1590702706453)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/CevapRaporu.iml" filepath="$PROJECT_DIR$/.idea/CevapRaporu.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: bot-cevap.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#!/usr/bin/env python3\n\n# FIXME: requirements.txt\n# pip3 install python-telegram-bot --upgrade\n# pip3 install pyscreenshot\n# pip3 install pillow\n\nfrom telegram.ext import Updater\nfrom telegram.ext import CommandHandler\n\nimport pyscreenshot as ImageGrab\nimport os\nimport time\n\nos.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw' #bilirkisi\n\n#os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA' #malumat\ntoken = os.getenv('TOKEN')\nif not token:\n    print(\"You need to export TOKEN=YOURTELEGRAMTOKEN\")\n    exit()\n\nupdater = Updater(token=token)\ndispatcher = updater.dispatcher\n\ndosyaAdi = 1\nkanalID=\"-1001144169699\"\n\ncevaplarToplu=[[0 for y in range(5)] for x in range(20)]\n\ndef harfCevir(harf):\n    if(harf==\"a\" or harf==\"A\"):\n        return 0\n    if(harf==\"b\" or harf==\"B\"):\n        return 1\n    if(harf==\"c\" or harf==\"C\"):\n        return 2\n    if(harf==\"d\" or harf==\"D\"):\n        return 3\n    if(harf==\"e\" or harf==\"E\"):\n        return 4\n    \ndef sayiCevir(sayi):\n    if (sayi==0):\n        return \"A\"\n    if (sayi==1):\n        return \"B\"\n    if (sayi==2):\n        return \"C\"\n    if (sayi==3):\n        return \"D\"\n    if (sayi==4):\n        return \"E\"\n    \ndef cevapGoster():\n    mesaj=\"\"\n    for i in range(len(cevaplarToplu)):\n        mesaj+=\"%s) \" % int(i+1)\n        for j in range(len(cevaplarToplu[i])):\n            if (cevaplarToplu[i][j]>0):\n                mesaj+=\"%s(%s) \" % (sayiCevir(j),cevaplarToplu[i][j])\n        mesaj+=\"\\n\"\n    return mesaj\n\ndef start(bot, update):\n    bot.send_message(chat_id=update.message.chat_id, text=\"'/cevap Soru cevap seklinde cevabi bildirin. Ornek: /cevap 5-a\")\n\ndef cevap(bot, update):\n    if(str(update.message.chat_id)==kanalID):\n        cevaplar1=update.message.text\n        cevaplar=cevaplar1.split()\n        cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1\n        #bot.send_message(chat_id=update.message.chat_id, text=\"soru:\" + cevaplar[1] + \" cevap:\" + cevaplar[2])\n    else:\n        bot.send_message(chat_id=update.message.chat_id, text= \"%s : Ozelden komut gonderemezsiniz\" % update.message.chat_id)\n\ndef sil(bot,update):\n    if(str(update.message.chat_id)==kanalID):\n        cevaplar1=update.message.text\n        cevaplar=cevaplar1.split()\n        if(cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]>0):\n            cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]-=1\n        bot.send_message(chat_id=update.message.chat_id, text=\"SILINDI soru:\" + cevaplar[1] + \" cevap:\" + cevaplar[2])    \n    else:\n        bot.send_message(chat_id=update.message.chat_id, text= \"%s : Ozelden komut gonderemezsiniz\" % update.message.chat_id)\n\ndef cevaplar(bot, update):\n    bot.send_message(chat_id=update.message.chat_id, text=cevapGoster())\n    bot.send_message(chat_id=kanalID, text=cevapGoster())\n\n\ndef k(bot, update):\n    bot.send_message(chat_id=kanalID, text=update.message.text[3:])\n\ndef sifirla(bot,update):\n    for i in range(len(cevaplarToplu)):\n        for j in range(len(cevaplarToplu[i])):\n            cevaplarToplu[i][j]=0\n    bot.send_message(chat_id=update.message.chat_id, text=\"sifirlandi\")\n       \n\nstart_handler = CommandHandler('start', start)\ndispatcher.add_handler(start_handler)\n\ncapture_handler = CommandHandler('cevap', cevap)\ndispatcher.add_handler(capture_handler)\n\ncapture_handler = CommandHandler('sil', sil)\ndispatcher.add_handler(capture_handler)\n\ncapture_handler = CommandHandler('yanitlar', cevaplar)\ndispatcher.add_handler(capture_handler)\n\ncapture_handler = CommandHandler('k', k)\ndispatcher.add_handler(capture_handler)\n\ncapture_handler = CommandHandler('sifirla', sifirla)\ndispatcher.add_handler(capture_handler)\n\nprint(\"Running bot now.\")\nupdater.start_polling()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- bot-cevap.py	(revision 35e8f239209925ca2862d323f8b83978d8783218)
++++ bot-cevap.py	(date 1590706963733)
+@@ -11,10 +11,10 @@
+ import pyscreenshot as ImageGrab
+ import os
+ import time
++print("bot")
++#os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw' #bilirkisi
+ 
+-os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw' #bilirkisi
+-
+-#os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA' #malumat
++os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA' #malumat
+ token = os.getenv('TOKEN')
+ if not token:
+     print("You need to export TOKEN=YOURTELEGRAMTOKEN")
+@@ -24,8 +24,8 @@
+ dispatcher = updater.dispatcher
+ 
+ dosyaAdi = 1
+-kanalID="-1001144169699"
+-
++#kanalID="-1001144169699"
++kanalID="-328562056"
+ cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
+ 
+ def harfCevir(harf):
+@@ -98,24 +98,27 @@
+             cevaplarToplu[i][j]=0
+     bot.send_message(chat_id=update.message.chat_id, text="sifirlandi")
+        
+-
+-start_handler = CommandHandler('start', start)
+-dispatcher.add_handler(start_handler)
++def main():
++    start_handler = CommandHandler('start', start)
++    dispatcher.add_handler(start_handler)
+ 
+-capture_handler = CommandHandler('cevap', cevap)
+-dispatcher.add_handler(capture_handler)
++    capture_handler = CommandHandler('cevap', cevap)
++    dispatcher.add_handler(capture_handler)
+ 
+-capture_handler = CommandHandler('sil', sil)
+-dispatcher.add_handler(capture_handler)
++    capture_handler = CommandHandler('sil', sil)
++    dispatcher.add_handler(capture_handler)
+ 
+-capture_handler = CommandHandler('yanitlar', cevaplar)
+-dispatcher.add_handler(capture_handler)
++    capture_handler = CommandHandler('yanitlar', cevaplar)
++    dispatcher.add_handler(capture_handler)
+ 
+-capture_handler = CommandHandler('k', k)
+-dispatcher.add_handler(capture_handler)
++    capture_handler = CommandHandler('k', k)
++    dispatcher.add_handler(capture_handler)
+ 
+-capture_handler = CommandHandler('sifirla', sifirla)
+-dispatcher.add_handler(capture_handler)
++    capture_handler = CommandHandler('sifirla', sifirla)
++    dispatcher.add_handler(capture_handler)
+ 
+-print("Running bot now.")
+-updater.start_polling()
+\ No newline at end of file
++    print("Running bot now.")
++    updater.start_polling()
++
++if __name__=="__main__":
++    main()
+\ No newline at end of file

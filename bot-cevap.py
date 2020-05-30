@@ -9,7 +9,7 @@ from telegram.ext import CommandHandler
 import os
 import time
 
-os.environ['TOKEN']='buraya api gelecek' 
+#os.environ['TOKEN']='buraya api gelecek'
 
 token = os.getenv('TOKEN')
 if not token:
@@ -20,7 +20,7 @@ updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
 dosyaAdi = 1
-kanalID="-buraya kanal id"  #kanalID="-100324324"
+kanalID=os.getenv('kanalID')  #kanalID="-100324324"
 
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
 kisi =[]

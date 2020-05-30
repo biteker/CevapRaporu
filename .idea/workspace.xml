@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/test" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7f6e76e9-3761-494d-97b1-21fc5f662386" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bot-cevap.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot-cevap.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cVfjhbEHPQ8YirYtfBmc30fXxo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bot-cevap.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="bot-cevap" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CevapRaporu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="TOKEN" value="980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA" />
+        <env name="kanalID" value="-328562056" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bot-cevap.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.bot-cevap" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f6e76e9-3761-494d-97b1-21fc5f662386" name="Default Changelist" comment="" />
+      <created>1590618817691</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590618817691</updated>
+    </task>
+    <task id="LOCAL-00001" summary="OOP ye geçiş denemesi :)">
+      <created>1590745353025</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590745353025</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/test" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="OOP ye geçiş denemesi :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="OOP ye geçiş denemesi :)" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="85" y="75" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590871353829">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="85" y="75" key="#com.intellij.execution.impl.EditConfigurationsDialog/68.27.1298.741@68.27.1298.741" timestamp="1590871353829" />
+    <state x="662" y="121" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1590739425117">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="662" y="121" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/68.27.1298.741@68.27.1298.741" timestamp="1590739425117" />
+    <state x="256" y="27" width="912" height="741" key="CommitChangelistDialog2" timestamp="1590745352737">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="256" y="27" width="912" height="741" key="CommitChangelistDialog2/68.27.1298.741@68.27.1298.741" timestamp="1590745352737" />
+    <state x="557" y="136" width="319" height="529" key="EnvironmentVariablesDialog" timestamp="1590871352321">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="557" y="136" width="319" height="529" key="EnvironmentVariablesDialog/68.27.1298.741@68.27.1298.741" timestamp="1590871352321" />
+    <state x="500" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1590867452145">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="500" y="155" width="424" height="491" key="FileChooserDialogImpl/68.27.1298.741@68.27.1298.741" timestamp="1590867452145" />
+    <state width="637" height="138" key="GridCell.Tab.0.bottom" timestamp="1590869998533">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state width="637" height="138" key="GridCell.Tab.0.bottom/68.27.1298.741@68.27.1298.741" timestamp="1590869998533" />
+    <state width="637" height="138" key="GridCell.Tab.0.center" timestamp="1590869998530">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state width="637" height="138" key="GridCell.Tab.0.center/68.27.1298.741@68.27.1298.741" timestamp="1590869998530" />
+    <state width="637" height="138" key="GridCell.Tab.0.left" timestamp="1590869998530">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state width="637" height="138" key="GridCell.Tab.0.left/68.27.1298.741@68.27.1298.741" timestamp="1590869998530" />
+    <state width="637" height="138" key="GridCell.Tab.0.right" timestamp="1590869998531">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state width="637" height="138" key="GridCell.Tab.0.right/68.27.1298.741@68.27.1298.741" timestamp="1590869998531" />
+    <state x="206" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1590867064533">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="206" y="31" width="1022" height="737" key="SettingsEditor/68.27.1298.741@68.27.1298.741" timestamp="1590867064533" />
+    <state x="470" y="87" width="473" height="636" key="VCS.ChangeListViewerDialog" timestamp="1590866500879">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="470" y="87" width="473" height="636" key="VCS.ChangeListViewerDialog/68.27.1298.741@68.27.1298.741" timestamp="1590866500879" />
+    <state x="312" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1590745398797">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="312" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/68.27.1298.741@68.27.1298.741" timestamp="1590745398797" />
+    <state x="457" y="229" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590702701753">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="457" y="229" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/68.27.1298.741@68.27.1298.741" timestamp="1590702701753" />
+    <state x="389" y="186" width="646" height="437" key="git4idea.merge.GitPullDialog" timestamp="1590867267314">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="389" y="186" width="646" height="437" key="git4idea.merge.GitPullDialog/68.27.1298.741@68.27.1298.741" timestamp="1590867267314" />
+    <state x="433" y="294" width="557" height="214" key="git4idea.ui.GitResetDialog" timestamp="1590866502265">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="433" y="294" width="557" height="214" key="git4idea.ui.GitResetDialog/68.27.1298.741@68.27.1298.741" timestamp="1590866502265" />
+    <state x="380" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1590739350788">
+      <screen x="68" y="27" width="1298" height="741" />
+    </state>
+    <state x="380" y="89" width="672" height="678" key="search.everywhere.popup/68.27.1298.741@68.27.1298.741" timestamp="1590739350788" />
+  </component>
+</project>
