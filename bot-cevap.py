@@ -2,19 +2,15 @@
 
 # FIXME: requirements.txt
 # pip3 install python-telegram-bot --upgrade
-# pip3 install pyscreenshot
-# pip3 install pillow
 
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 
-import pyscreenshot as ImageGrab
 import os
 import time
 
-os.environ['TOKEN']='1142979898:AAEGJvOstfYNHLKMPYaclsIOx3YsHzjOUPw' #bilirkisi
+os.environ['TOKEN']='Buraya Api Girilecek' 
 
-#os.environ['TOKEN']='980552993:AAH5DPFby37PpE8mhxpP6E_aUtKsj1OCgOA' #malumat
 token = os.getenv('TOKEN')
 if not token:
     print("You need to export TOKEN=YOURTELEGRAMTOKEN")
@@ -24,7 +20,7 @@ updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
 dosyaAdi = 1
-kanalID="-1001144169699"
+kanalID="buraya kanal id girilecek basında - olmalı"  #kanalID="-100324324"
 
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
 kisi =[]
