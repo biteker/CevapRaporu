@@ -9,7 +9,7 @@ from telegram.ext import CommandHandler
 import os
 import time
 
-os.environ['TOKEN']='Buraya Api Girilecek' 
+os.environ['TOKEN']='buraya api gelecek' 
 
 token = os.getenv('TOKEN')
 if not token:
@@ -20,7 +20,7 @@ updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
 dosyaAdi = 1
-kanalID="buraya kanal id girilecek basında - olmalı"  #kanalID="-100324324"
+kanalID="-buraya kanal id"  #kanalID="-100324324"
 
 cevaplarToplu=[[0 for y in range(5)] for x in range(20)]
 kisi =[]
@@ -63,16 +63,20 @@ def cevapGoster():
     return mesaj
 
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="'/cevap Soru cevap seklinde cevabi bildirin. Ornek: /cevap 5-a")
+    bot.send_message(chat_id=update.message.chat_id, text="Merhaba")
 
 def cevap(bot, update):
     if(str(update.message.chat_id)==kanalID):
         cevaplar1=update.message.text
         cevaplar=cevaplar1.split()
-        cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
-        kisi=[str(update.message.from_user.id), int(cevaplar[1])-1, harfCevir(cevaplar[2])]
-        cevapRapor.append(kisi)
-        bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + "soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+        #cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
+        kisi=[str(update.message.from_user.id), int(cevaplar[1])-1, harfCevir(cevaplar[2]), str(update.message.from_user.first_name), str(update.message.from_user.last_name)]
+        if kisi not in cevapRapor:
+            cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
+            cevapRapor.append(kisi)
+        else:
+            bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " Bu soruya dana once cevap verdiniz.")
+        bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
@@ -80,9 +84,13 @@ def sil(bot,update):
     if(str(update.message.chat_id)==kanalID):
         cevaplar1=update.message.text
         cevaplar=cevaplar1.split()
-        if(cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]>0):
+        kisi=[str(update.message.from_user.id), int(cevaplar[1])-1, harfCevir(cevaplar[2]), str(update.message.from_user.first_name), str(update.message.from_user.last_name)]
+        if kisi in cevapRapor:
             cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]-=1
-        bot.send_message(chat_id=update.message.chat_id, text="SILINDI soru:" + cevaplar[1] + " cevap:" + cevaplar[2])    
+            bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " SILINDI soru:" + cevaplar[1] + " cevap:" + cevaplar[2])    
+            cevapRapor.remove(kisi)
+        else:
+            bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " Daha once bu soruya cevap vermediniz")    
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
@@ -103,13 +111,12 @@ def sifirla(bot,update):
 def katilanlaraEkle():
     for i in range(len(cevapRapor)):
         if any(cevapRapor[i][0] in sublist for sublist in katilimciListesi)==False:
-            katilimciListesi1=[cevapRapor[i][0],1]
+            katilimciListesi1=[cevapRapor[i][0],1,cevapRapor[i][3],cevapRapor[i][4]]
             katilimciListesi.append(katilimciListesi1)
         else:
             for j in range(len(katilimciListesi)):
                 if (cevapRapor[i][0] in katilimciListesi[j])==True:
                     katilimciListesi[j][1]+=1
-                    print(katilimciListesi)
 
 def katilanlar(bot, update):
     katilimciListesi.clear()
@@ -117,7 +124,9 @@ def katilanlar(bot, update):
     mesaj="Katılanların Soru cevaplama Sayilari"
     mesaj+="\n" 
     for i in range(len(katilimciListesi)):
-        mesaj+=katilimciListesi[i][0]
+        mesaj+=katilimciListesi[i][2]
+        mesaj+=" "
+        mesaj+=katilimciListesi[i][3]
         mesaj+=" : "
         mesaj+=str(katilimciListesi[i][1])
         mesaj+="\n"  
