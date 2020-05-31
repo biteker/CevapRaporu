@@ -65,17 +65,22 @@ def cevapGoster():
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Merhaba")
 
+def kisiSoruyaCevapVerdiMi(kullanciID,soru):
+    for i in range(len(cevapRapor)):
+        if (kullanciID in cevapRapor[i][0]) and (soru in str(cevapRapor[i][1])):
+            return True
+    return False
+
 def cevap(bot, update):
     if(str(update.message.chat_id)==kanalID):
         cevaplar1=update.message.text
         cevaplar=cevaplar1.split()
-        #cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
         kisi=[str(update.message.from_user.id), int(cevaplar[1])-1, harfCevir(cevaplar[2]), str(update.message.from_user.first_name), str(update.message.from_user.last_name)]
-        if kisi not in cevapRapor:
+        if kisiSoruyaCevapVerdiMi(kisi[0], str(kisi[1]))==False:
             cevaplarToplu[int(cevaplar[1])-1][harfCevir(cevaplar[2])]+=1
             cevapRapor.append(kisi)
         else:
-            bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " Bu soruya dana once cevap verdiniz.")
+            bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " bu soruya daha once cevap verdiniz.")
         #bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
@@ -90,7 +95,7 @@ def sil(bot,update):
             bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " SILINDI soru:" + cevaplar[1] + " cevap:" + cevaplar[2])    
             cevapRapor.remove(kisi)
         else:
-            bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " Daha once bu soruya cevap vermediniz")    
+            bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " daha once bu soruya cevap vermediniz veya baska bir yanita cevap verdiniz.")    
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
@@ -103,6 +108,7 @@ def k(bot, update):
     bot.send_message(chat_id=kanalID, text=update.message.text[3:])
 
 def sifirla(bot,update):
+    cevapRapor.clear()
     for i in range(len(cevaplarToplu)):
         for j in range(len(cevaplarToplu[i])):
             cevaplarToplu[i][j]=0
