@@ -67,7 +67,7 @@ def start(bot, update):
 
 def kisiSoruyaCevapVerdiMi(kullanciID,soru):
     for i in range(len(cevapRapor)):
-        if (kullanciID in cevapRapor[i][0]) and (soru in str(cevapRapor[i][1])):
+        if (kullanciID == cevapRapor[i][0]) and (soru == str(cevapRapor[i][1])):
             return True
     return False
 
