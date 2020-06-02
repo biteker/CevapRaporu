@@ -30,3 +30,4 @@ liste.append(ogrenci)
 print(liste[1].userId)
 
 #print(*liste, sep="\n")
+#deneme
