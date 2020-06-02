@@ -27,6 +27,8 @@ kisi =[]
 cevapRapor=[]
 katilimciListesi=[]
 katilimciListesi1=[]
+mesajID=1000
+mesajID2=1000
 
 def harfCevir(harf):
     if(harf=="a" or harf=="A"):
@@ -81,7 +83,7 @@ def cevap(bot, update):
             cevapRapor.append(kisi)
         else:
             bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " bu soruya daha once cevap verdiniz.")
-        #bot.send_message(chat_id=update.message.chat_id, text=str(update.message.from_user.first_name) + " soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
+        bot.send_message(chat_id=update.message.chat_id, text=str(update.message.message_id) + " " + str(update.message.from_user.first_name) + " soru:" + cevaplar[1] + " cevap:" + cevaplar[2])
     else:
         bot.send_message(chat_id=update.message.chat_id, text= "%s : Ozelden komut gonderemezsiniz" % update.message.chat_id)
 
@@ -137,7 +139,31 @@ def katilanlar(bot, update):
         mesaj+=str(katilimciListesi[i][1])
         mesaj+="\n"  
     bot.send_message(chat_id=update.message.chat_id, text=mesaj)
-       
+
+def baslat(bot, update):
+    global mesajID
+    mesajID=update.message.message_id
+    bot.send_message(chat_id=update.message.chat_id, text="Basladi")
+
+def bitir(bot, update):
+    global mesajID2
+    mesajID2=update.message.message_id
+    bot.send_message(chat_id=update.message.chat_id, text="bitti")
+
+def gecmisiSil(bot,update):
+    son=mesajID2 + 2
+    for i in range(mesajID, son):
+        try:
+            bot.delete_message(chat_id=kanalID, message_id=i)
+        except:
+            print("hata")
+    print("silindi")
+
+def kanaldanAyril(bot, update):
+    bot.leave_chat(chat_id=kanalID)
+
+start_handler = CommandHandler('kanaldanayril', kanaldanAyril)
+dispatcher.add_handler(start_handler)
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
@@ -155,6 +181,15 @@ capture_handler = CommandHandler('k', k)
 dispatcher.add_handler(capture_handler)
 
 capture_handler = CommandHandler('sifirla', sifirla)
+dispatcher.add_handler(capture_handler)
+
+capture_handler = CommandHandler('gecmisisil', gecmisiSil)
+dispatcher.add_handler(capture_handler)
+
+capture_handler = CommandHandler('baslat', baslat)
+dispatcher.add_handler(capture_handler)
+
+capture_handler = CommandHandler('bitir', bitir)
 dispatcher.add_handler(capture_handler)
 
 capture_handler = CommandHandler('katilanlar', katilanlar)
