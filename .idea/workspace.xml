@@ -22,12 +22,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f6e76e9-3761-494d-97b1-21fc5f662386" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-cevap.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot-cevap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-ekran.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot-ekran.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cr_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/cr_test.py" afterDir="false" />
+    <list default="true" id="7f6e76e9-3761-494d-97b1-21fc5f662386" name="Default Changelist" comment="kanalid değiştirme özelliği eklendi">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590745353025</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="kanalid değiştirme özelliği eklendi">
+      <created>1591342004468</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591342004468</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,7 +188,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="OOP ye geçiş denemesi :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="OOP ye geçiş denemesi :)" />
+    <MESSAGE value="kanalid değiştirme özelliği eklendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="kanalid değiştirme özelliği eklendi" />
   </component>
   <component name="WindowStateProjectService">
     <state x="85" y="75" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591305986604">
@@ -196,10 +200,10 @@
       <screen x="68" y="27" width="1298" height="741" />
     </state>
     <state x="662" y="121" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/68.27.1298.741@68.27.1298.741" timestamp="1590739425117" />
-    <state x="256" y="27" width="912" height="741" key="CommitChangelistDialog2" timestamp="1590745352737">
+    <state x="256" y="27" width="912" height="741" key="CommitChangelistDialog2" timestamp="1591342019884">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
-    <state x="256" y="27" width="912" height="741" key="CommitChangelistDialog2/68.27.1298.741@68.27.1298.741" timestamp="1590745352737" />
+    <state x="256" y="27" width="912" height="741" key="CommitChangelistDialog2/68.27.1298.741@68.27.1298.741" timestamp="1591342019884" />
     <state x="168" y="127" width="1098" height="541" key="DiffContextDialog" timestamp="1590956761211">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
@@ -212,22 +216,22 @@
       <screen x="68" y="27" width="1298" height="741" />
     </state>
     <state x="500" y="155" width="424" height="491" key="FileChooserDialogImpl/68.27.1298.741@68.27.1298.741" timestamp="1591303134698" />
-    <state width="1275" height="210" key="GridCell.Tab.0.bottom" timestamp="1591341838536">
+    <state width="1275" height="210" key="GridCell.Tab.0.bottom" timestamp="1591342009012">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
-    <state width="1275" height="210" key="GridCell.Tab.0.bottom/68.27.1298.741@68.27.1298.741" timestamp="1591341838536" />
-    <state width="1275" height="210" key="GridCell.Tab.0.center" timestamp="1591341838535">
+    <state width="1275" height="210" key="GridCell.Tab.0.bottom/68.27.1298.741@68.27.1298.741" timestamp="1591342009012" />
+    <state width="1275" height="210" key="GridCell.Tab.0.center" timestamp="1591342009011">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
-    <state width="1275" height="210" key="GridCell.Tab.0.center/68.27.1298.741@68.27.1298.741" timestamp="1591341838535" />
-    <state width="1275" height="210" key="GridCell.Tab.0.left" timestamp="1591341838535">
+    <state width="1275" height="210" key="GridCell.Tab.0.center/68.27.1298.741@68.27.1298.741" timestamp="1591342009011" />
+    <state width="1275" height="210" key="GridCell.Tab.0.left" timestamp="1591342009011">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
-    <state width="1275" height="210" key="GridCell.Tab.0.left/68.27.1298.741@68.27.1298.741" timestamp="1591341838535" />
-    <state width="1275" height="210" key="GridCell.Tab.0.right" timestamp="1591341838536">
+    <state width="1275" height="210" key="GridCell.Tab.0.left/68.27.1298.741@68.27.1298.741" timestamp="1591342009011" />
+    <state width="1275" height="210" key="GridCell.Tab.0.right" timestamp="1591342009012">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
-    <state width="1275" height="210" key="GridCell.Tab.0.right/68.27.1298.741@68.27.1298.741" timestamp="1591341838536" />
+    <state width="1275" height="210" key="GridCell.Tab.0.right/68.27.1298.741@68.27.1298.741" timestamp="1591342009012" />
     <state x="193" y="86" width="1038" height="629" key="MergeDialog" timestamp="1591305300107">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
@@ -244,10 +248,10 @@
       <screen x="68" y="27" width="1298" height="741" />
     </state>
     <state x="470" y="87" width="473" height="636" key="VCS.ChangeListViewerDialog/68.27.1298.741@68.27.1298.741" timestamp="1590866500879" />
-    <state x="312" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1590745398797">
+    <state x="312" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1591342041832">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
-    <state x="312" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/68.27.1298.741@68.27.1298.741" timestamp="1590745398797" />
+    <state x="312" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/68.27.1298.741@68.27.1298.741" timestamp="1591342041832" />
     <state x="667" y="358" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591305183818">
       <screen x="68" y="27" width="1298" height="741" />
     </state>
