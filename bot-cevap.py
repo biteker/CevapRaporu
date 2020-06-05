@@ -162,6 +162,16 @@ def gecmisiSil(bot,update):
 def kanaldanAyril(bot, update):
     bot.leave_chat(chat_id=kanalID)
 
+def kanalid(bot,update):
+    global kanalID
+    if (update.message.text[9:]=="reset"):
+        kanalID = os.getenv('kanalID')
+    else:
+        kanalID=update.message.text[9:]
+
+start_handler = CommandHandler('kanalid', kanalid)
+dispatcher.add_handler(start_handler)
+
 start_handler = CommandHandler('kanaldanayril', kanaldanAyril)
 dispatcher.add_handler(start_handler)
 

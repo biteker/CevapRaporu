@@ -16,9 +16,9 @@ import time
 from pdf import pdfYap
 from pynput import keyboard
 
-os.environ['TOKEN']='buraya api key girilecek' 
+#os.environ['TOKEN']='buraya api key girilecek'
 
-token = os.getenv('TOKEN')
+token = os.getenv('TOKEN1')
 if not token:
     print("You need to export TOKEN=YOURTELEGRAMTOKEN")
     exit()
@@ -27,7 +27,7 @@ updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
 dosyaAdi = 1
-kanalID="buraya kanal id" #kanalID="-213542313"
+kanalID="-292610470" #kanalID="-213542313"
 
 
 

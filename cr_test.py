@@ -1,12 +1,12 @@
 class Person(object):
-    def __init__(self, userId, soru, cevap):
-        self._userId = userId
+    def __init__(self, chatId, soru, cevap):
+        self._chatId = chatId
         self._soru = soru
         self._cevap = cevap
 
     @property
     def userId(self):
-        return self._userId
+        return self._chatId
 
     @property
     def soru(self):
@@ -16,10 +16,40 @@ class Person(object):
     def cevap(self):
         return self._cevap
 
+    def soruCevap(self, mesaj):
+        mesaj1=mesaj.split()
+        return mesaj1[1],mesaj1[2]
+
     def __str__(self):
-        return "Kullanıcı:%s Soru:%s Cevap:%s" % (self._userId,self._soru,self._cevap)
+        return "Kullanıcı:%s Soru:%s Cevap:%s" % (self._chatId, self._soru, self._cevap)
+
+ogrenci = Person(1,2,3)
+soru,cevap = ogrenci.soruCevap("/cevap 1 A")
 
 
+print(soru)
+
+
+cevaplarToplu=[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 liste = []
 
 ogrenci = Person(1, 2, 3)  # ogrenci blgilerini girmek icin 1. yol
@@ -44,5 +74,5 @@ def kisiSoruyaCevapVerdiMi():
             return True
     return False
 
-print(kisiSoruyaCevapVerdiMi())
 
+'''
